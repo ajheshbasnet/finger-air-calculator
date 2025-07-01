@@ -57,8 +57,10 @@ while True:
                 prob_outof_all = model.predict(input_number)
 
                 y_pred = np.argmax(prob_outof_all)
+                probs = np.max(prob_outof_all)
 
-                numbers.append(y_pred.item())
+                if probs > 0.85:
+                    numbers.append(y_pred.item())
 
             points = []
             canvas = np.zeros((125, 125), dtype=np.uint8)
